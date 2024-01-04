@@ -55,7 +55,7 @@ def open_ws():
 
 def get_block_from_rpc():
     url_list = [
-        "https://arbitrum-one.publicnode.com"
+        "https://arbitrum-one.publicnode.com",
         "https://arb-mainnet.unifra.io/v1/bb7f9fd643754558bf204157b1af7931",
         "https://arbitrum.blockpi.network/v1/rpc/829a98f75d90ce7116e40fba9655b4d7dcb770db",
         "https://arbitrum-mainnet.infura.io/v3/80c0d6915cac453cb8e5b1facfaecc21",
