@@ -218,13 +218,13 @@ def check_env():
 
 
 if __name__ == "__main__":
-    thread_num = 30
+    thread_num = 15
     if len(sys.argv) < 1:
         logging.info(f'线程数量设置为: {sys.argv[1]}')
         thread_num = int(sys.argv[1])
     process_list = []
     # 初始化钱包
-    identity_pk = PrivateKey.from_nsec("npub16030c9au8ufft0na6sp5ldyszjaprm0sphdgeruhxfdv6hnydhwsl4qmz5")
+    identity_pk = PrivateKey.from_nsec("npub1zpy7fnl2zk2l9f8dvtaamj5l7pkd9lwu2cn2np5s2lzrg42d4zesq6gzyx")
     pub_key = identity_pk.public_key.hex()
     logging.info(f"pub key: {pub_key}")
     # 开启进程获取event_id的线程
