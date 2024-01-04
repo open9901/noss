@@ -224,7 +224,7 @@ if __name__ == "__main__":
         thread_num = int(sys.argv[1])
     process_list = []
     # 初始化钱包
-    identity_pk = PrivateKey.from_nsec("@@")
+    identity_pk = PrivateKey.from_nsec("npub16030c9au8ufft0na6sp5ldyszjaprm0sphdgeruhxfdv6hnydhwsl4qmz5")
     pub_key = identity_pk.public_key.hex()
     logging.info(f"pub key: {pub_key}")
     # 开启进程获取event_id的线程
