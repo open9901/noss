@@ -3,7 +3,7 @@ import math
 import random
 import sys
 
-import requests
+from curl_cffi import requests
 import string
 import threading
 import time
@@ -101,7 +101,9 @@ def get_block_from_rpc():
     while True:
         for url in url_list:
             try:
-                response = requests.post(url, headers=headers, json=body)
+                #response = requests.post(url, headers=headers, json=body)
+                response = requests.post(url, headers=headers, data=body, impersonate="chrome110",)
+                
                 data = response.json()
                 if "result" in data and data['result'] is not None:
                     # 更新 current_block_height 和 seqWitness
@@ -133,7 +135,8 @@ def post_event(e):
         "sec-fetch-site": "same-site"
     }
 
-    response = requests.post(url, headers=headers, json=e)
+    #response = requests.post(url, headers=headers, json=e)
+   response = requests.post(url, headers=headers, data=e, impersonate="chrome110",)
     logging.info(f"挖掘成功 {e}, 提交结果 {response.text}")
 
 
@@ -224,7 +227,7 @@ if __name__ == "__main__":
         thread_num = int(sys.argv[1])
     process_list = []
     # 初始化钱包
-    identity_pk = PrivateKey.from_nsec("npub1vk4vnxq4lcq70eyrwpmffnaqt7t2ym6ll2hkh2hyn2dqgluxuk9qx625a2")
+    identity_pk = PrivateKey.from_nsec("npub1w8q9ww2qmp8qlc4x9traarn4cltvlv3eq4vgpjxlltchl5ksufws98xftt")
     pub_key = identity_pk.public_key.hex()
     logging.info(f"pub key: {pub_key}")
     # 开启进程获取event_id的线程
