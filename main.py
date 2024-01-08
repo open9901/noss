@@ -102,7 +102,7 @@ def get_block_from_rpc():
         for url in url_list:
             try:
                 #response = requests.post(url, headers=headers, json=body)
-                response = requests.post(url, headers=headers, data=body, impersonate="chrome110",)
+                response = requests.post(url, headers=headers, json=body, impersonate="chrome110",)
                 
                 data = response.json()
                 if "result" in data and data['result'] is not None:
@@ -136,7 +136,7 @@ def post_event(e):
     }
 
     #response = requests.post(url, headers=headers, json=e)
-   response = requests.post(url, headers=headers, data=e, impersonate="chrome110",)
+   response = requests.post(url, headers=headers, json=e, impersonate="chrome110",)
     logging.info(f"挖掘成功 {e}, 提交结果 {response.text}")
 
 
